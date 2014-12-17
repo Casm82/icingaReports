@@ -1,0 +1,24 @@
+extends layout
+
+block css
+  link(rel='stylesheet', href='/styles/viewReport.css')
+
+block content
+  table
+    - documents.forEach(function(doc){
+      th
+        a(href =doc.url) 
+          | Доступность за 
+          = doc.date.month
+          |  месяц 
+          = doc.date.year
+          |  года
+          = _id
+    - })
+
+    tr
+      - documents.forEach(function(doc){
+        - var report = doc.report;
+        td
+          include cell
+      - })

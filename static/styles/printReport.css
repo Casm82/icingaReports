@@ -1,0 +1,10 @@
+h1 { text-align: center;
+	font-size: 1.25em; }
+
+table { border: 1px solid;
+    border-collapse: collapse;
+	margin: auto; }
+
+th,td { border: 1px solid; }
+
+td.timeIdle { text-align: center; }

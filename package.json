@@ -1,0 +1,26 @@
+{
+  "name": "icingaReports",
+  "version": "0.0.9",
+  "private": true,
+  "description": "Icinga availability report analyze",
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Casm82/icingaReports"
+  },
+  "author": "Aleksandr Makhnev",
+  "license": "GPL v2",
+  "homepage": "https://github.com/Casm82/icingaReports",
+  "dependencies": {  
+    "activedirectory": "0.x",
+    "express": "4.x",
+    "express-middlewares": "0.x",
+    "express-sessions": "1.x",
+    "htmltidy": "0.x",
+    "jade": "1.x",
+    "mongoose": "3.x",
+    "request": "2.x",
+    "xmldom": "0.x",
+    "xpath": "0.x"    
+  }
+}

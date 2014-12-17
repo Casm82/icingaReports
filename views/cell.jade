@@ -1,0 +1,31 @@
+- if (report.length)
+  table
+    - if (doc.leastQuarterly) {
+      th Cервер
+    - } else {
+      th
+    - }
+    th Службы / время простоя
+    tr 
+      div.avgTimeIdle Средняя доступность: 
+        = doc.avgAvailability
+        | %
+      div.avgTimeIdle Среднее время простоя: 
+       - var avgTimeIdleStr = doc.avgTimeIdle[0] + "ч " + doc.avgTimeIdle[1] + "м"
+       = avgTimeIdleStr
+    - report.forEach(function(server){
+      tr
+        - if (doc.leastQuarterly) {
+          td.hostname= server.host
+        - } else {
+          td
+        - }
+        td 
+          table.inBox
+            - server.services.forEach(function(service){
+              tr.service
+                td.servicename= service.servicename
+                - var timeIdleStr = service.timeIdle[0] + "ч " + service.timeIdle[1] + "м"
+                td.timeIdle= timeIdleStr
+            - })
+    - })

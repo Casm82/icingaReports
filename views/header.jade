@@ -1,0 +1,24 @@
+div#headerHomeURL
+  a(href='/') Отчёт о работе серверного комплекса
+- if (state == "publishedQuarter") {
+    div#headerMenu
+        form#action.actions(method="POST", action="/prePrintReport")
+        input(form="action" type="hidden" name="quarter" value=date.quarter)
+        input(form="action" type="hidden" name="year" value=date.year)
+        input(form="action" type="submit" value="Скорректировать и распечатать отчёт")
+- }
+- if (state == "prePrinted") {
+    div#headerMenu
+        form#action.actions(method="POST", action="/printReport")
+        input(form="action" type="hidden" name="quarter" value=document.date.quarter)
+        input(form="action" type="hidden" name="year" value=document.date.year)
+        input(form="action" type="hidden" name="avgTimeIdle" value=avgTimeIdleStr)
+        input(form="action" type="submit" value="Распечатать отчёт")
+-}
+div#headerUserInfo
+  - if (session.username) {
+      |  Вы вошли как:&nbsp
+      = session.username
+      | &nbsp
+      a(href='/logout') Выйти
+  - }

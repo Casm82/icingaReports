@@ -1,0 +1,12 @@
+{
+	"port": 3000,
+	"domain": "domain.ru",
+	"ldapConfig": { "url": "ldap://dc.domain.ru",
+        "baseDN": "dc=domain,dc=ru",
+        "username": "testuser@domain.ru",
+        "password": "test" },
+        "groupName":  "Domain Admins",
+	"serviceGrp": "ProductionServices",
+	"reportTimePeriod": "workhours_8.00-17.00",
+	"icingaURL": "http://icinga.domain.ru/icinga"
+}

@@ -1,0 +1,37 @@
+extends layout
+block css
+  link(rel='stylesheet', href='/styles/selectDate.css')
+
+block content
+  h1 Анализ отчётов Icinga
+  h2 Выберите квартал и год для анализа доступности работы служб
+  div#selectDate
+    form(method="POST", action="/getReport")
+      span
+        - if (quarter == 1) var detectCheck = true;
+        input#quarter1.quarter(type="radio" name="quarter" checked=detectCheck value="1")
+        label(for="quarter1") Квартал 1
+        - var detectCheck = false
+      span
+        - if (quarter == 2) var detectCheck = true;
+        input#quarter2.quarter(type="radio" name="quarter" checked=detectCheck value="2")
+        label(for="quarter2") Квартал 2
+        - var detectCheck = false
+      span
+        - if (quarter == 3) var detectCheck = true;
+        input#quarter3.quarter(type="radio" name="quarter" checked=detectCheck value="3")
+        label(for="quarter3") Квартал 3
+        - var detectCheck = false
+      span
+        - if (quarter == 4) var detectCheck = true;
+        input#quarter4.quarter(type="radio" name="quarter" checked=detectCheck value="4")
+        label(for="quarter4") Квартал 4
+        - var detectCheck = false
+      span
+        label#year(for="year") Год: 
+        select(name="year")
+          - each year in years
+            p Квартал 
+            option= year
+      p
+        input(type="submit" value="Запустить анализ отчётов Icinga")

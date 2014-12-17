@@ -1,0 +1,13 @@
+link(rel='stylesheet', href='/styles/printReport.css')
+
+h1= title
+table
+    th Cервер
+    th Служба
+    th Время простоя
+        - document.forEach(function(service){
+             tr
+               td.host= service.host
+               td.service= service.service
+               td.timeIdle= service.timeIdle
+        -   });

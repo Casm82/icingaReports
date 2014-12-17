@@ -1,0 +1,43 @@
+extends layout
+
+block css
+  link(rel='stylesheet', href='/styles/viewReport.css')
+
+block scripts
+  script(src="/scripts/calcAvgIdle.js")
+
+block content
+ div.table
+  - var avgTimeIdleStr = document.avgTimeIdle[0] + "ч " + document.avgTimeIdle[1] + "м"
+  div#avgTimeIdleDiv
+    | Среднее время
+    br
+    | простоя за месяц:&nbsp
+    div#avgTimeIdleStr= avgTimeIdleStr
+  h2 Отчёт о доступности служб за 
+      = document.date.month
+      |  месяц 
+      = document.date.year
+      |  года
+  - if (document.report.length)
+    table.report
+      th Cервер
+      th Время простоя службы
+      - document.report.forEach(function(server){
+        tr
+          td.hostname= server.host
+          td
+            table.inBox
+              - server.services.forEach(function(service){
+                tr.service
+                  td.servicename= service.servicename
+                  td.timeIdle
+                     -var servicename = "service;" + server.host + ";" + service.servicename
+                     -var timeHrs = service.timeIdle[0]
+                     -var timeMin = service.timeIdle[1]
+                     input.timeHrs(form="action" type="number" name=servicename value=timeHrs min=0 pattern="^\d+$")
+                     span ч 
+                     input.timeMin(form="action" type="number" name=servicename value=timeMin min=0 max=59 pattern="^\d{2}$" onchange="calcAvg()")
+                     span м
+              - })
+      - })

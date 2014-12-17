@@ -1,0 +1,44 @@
+section { padding: 3em 0 1em; }
+
+footer {
+    font-size: 0.85em;
+    text-align: right;
+}
+
+table { border-collapse: separate; }
+
+table.report { margin: auto; }
+
+table.inBox {
+	font-size: 0.85em;
+    width: 100%;
+    background: #D0E0E0;
+}
+
+td, th { padding: 0 0.5em; }
+
+
+div.avgTimeIdle {
+    text-align: left;
+    margin: 0 0 0 2em;
+}
+
+td.hostname {
+    background-color: rgb(180, 218, 150);
+    text-align: left;
+}
+
+td.servicename { text-align: left; }
+
+td.timeIdle { text-align: right; }
+
+input.timeHrs, input.timeMin { width: 4em; }
+
+#avgTimeIdleDiv
+{
+	font-weight: bold;
+	font-size: 1em;
+	position: fixed;
+	padding: 0.25em;
+	right: 2em;
+}

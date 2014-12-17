@@ -1,0 +1,27 @@
+section { 
+	position: absolute;
+	z-index: -1;
+	top: 3em;
+}
+
+#selectDate {
+	margin-top: 2em;
+}
+
+#year {
+    font-size: 1em;
+    margin: 0 0 0 3em;
+}
+
+.quarter {
+    margin: 0 0 0 1em;
+}
+
+footer {
+    position: fixed;
+    right: 1em;
+    bottom: 1em;
+    font-size: 0.85em;
+    text-align: right;
+    z-index: -1;
+}
